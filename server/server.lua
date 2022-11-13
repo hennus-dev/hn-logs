@@ -16,7 +16,7 @@ RegisterNetEvent('laz:logs:server:log', function(webhooks,name, message,tags,col
                 Wait(100)
                 colldowntags = colldowntags - 1
         end
-        if WeebHook.tag and WeebHook.tag == '' then
+        if WeebHook.tag and WeebHook.tag ~= '' then
             colldowntags = 5
             PerformHttpRequest(WeebHook.url, function(err, text, headers) if LazDebug then LazError(err..' '..tostring(text)..' '..json.encode(headers)) end end, 'POST', json.encode({username = 'Laz-logs// '..name, content = WeebHook.tag}), { ['Content-Type'] = 'application/json' })
         else
