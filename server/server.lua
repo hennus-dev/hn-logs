@@ -38,5 +38,3 @@ CreateThread(function()
     TriggerEvent('laz:logs:server:log', 'server','Logs Start' , 'Server started at ' .. os.date("%c"))
 end)
 
-
-

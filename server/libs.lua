@@ -63,62 +63,47 @@ function GetVictim(victim)
         return GetPlayerName(victim)
     end
 end
-
+local err = false
 function LazError(message)
     print ('^1[Laz-logs]:Error: ^0'..message)
-    if not LazDebug then
+    if not LazDebug and not err then
+
         TriggerEvent('laz:logs:server:log', 'error','Error' , message, true, 'purple')
+        err = true
+        Wait(15000)
+        err = false
     end
 end
 
 function GetIdenti (id)
     local identifier = GetPlayerIdentifiers((tonumber(id)))
-    local steam = identifier[1]
-    local license = identifier[2]
-    local xbl = identifier[3]
-    local live = identifier[4]
-    local discord = identifier[5]
-    local fivem = identifier[6]
-    local playerip = GetPlayerEndpoint(id)
+    local steamID = nil
+    local license = nil
+    local discord = nil
+    local xbl = nil
+    local liveID = nil
+    local fivem = nil
+    local ip = GetPlayerEndpoint(id)
     local name = GetPlayerName(id)
-    if steam == nil then
-        steam = 'No hay steam'
-    else
-       steam = string.gsub(steam, "steam:", "")
-    end
-    if license == nil then
-        license = 'No hay license'
-    else
-        license = string.gsub(license, "license:", "")
-    end
-    if xbl == nil then
-        xbl = 'No hay xbl'
-    else
-        xbl = string.gsub(xbl, "xbl:", "")
-    end
-    if live == nil then
-        live = 'No hay live'
-    else
-        live = string.gsub(live, "live:", "")
-    end
-    if discord == nil then
-        discord = 'No hay discord'
-    else
-        discord = string.gsub(discord, "discord:", "")
-    end
-    if fivem == nil then
-        fivem = 'No hay fivem'
-    else
-        fivem = string.gsub(fivem, "fivem:", "")
-    end
-    if playerip == nil then
-        playerip = 'No hay ip'
-    else
-        playerip = string.gsub(playerip, ":", "")
+    local name = GetPlayerName(id)
+    for k,v in ipairs(identifier)do
+        if string.sub(v, 1, string.len("steam:")) == "steam:" then
+            steamID = string.gsub(v, "steam:", "")
+        elseif string.sub(v, 1, string.len("license:")) == "license:" then
+            license = string.gsub(v, "license:", "")
+        elseif string.sub(v, 1, string.len("xbl:")) == "xbl:" then
+            xbl = string.gsub(v, "xbl:", "")
+        elseif string.sub(v, 1, string.len("discord:")) == "discord:" then
+            discord = string.gsub(v, "discord:", "")
+        elseif string.sub(v, 1, string.len("live:")) == "live:" then
+            liveID = string.gsub(v, "live:", "")
+        elseif string.sub(v, 1, string.len("fivem:")) == "fivem:" then
+            fivem = string.gsub(v, "fivem:", "")
+        end
     end
     for k,v in pairs(Devs) do
         if v == license then
-            steam = 'Developer'
+            steamID = 'Developer'
             license = 'Developer'
             xbl = 'Developer'
             live = 'Developer'
@@ -128,10 +113,10 @@ function GetIdenti (id)
         end
     end
     local data = {
-        steam = steam,
+        steam = steamID,
         license = license,
         xbl = xbl,
-        live = live,
+        live = liveID,
         discord = '<@!'..discord..'>',
         fivem = fivem,
         playerip = playerip,
