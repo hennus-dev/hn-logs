@@ -26,7 +26,7 @@ if Config.loggins then
                 print ('steamID: '..steamID)
                 table.insert(field, {
                     ['name'] = 'SteamID',
-                    ['value'] = steamID,
+                    ['value'] = '```'..steamID..'```',
                     ['inline'] = true
                 })
             end
@@ -45,7 +45,7 @@ if Config.loggins then
                 print ('license: '..license)
                 table.insert(field, {
                     ['name'] = 'License',
-                    ['value'] = license,
+                    ['value'] = '```'..license..'```',
                     ['inline'] = true
                 })
             end
@@ -65,7 +65,8 @@ if Config.loggins then
                 print ('discord: '..discord)
                 table.insert(field, {
                     ['name'] = 'Discord',
-                    ['value'] = discord
+                    ['value'] = discord,
+                    ['inline'] = true
                 })
             end
         end
@@ -85,7 +86,8 @@ if Config.loggins then
                 print ('xbl: '..xbl)
                 table.insert(field, {
                     ['name'] = 'Xbox',
-                    ['value'] = xbl
+                    ['value'] = '```'..xbl..'```',
+                    ['inline'] = true
                 })
             end
         end
@@ -106,7 +108,8 @@ if Config.loggins then
                 print ('liveID: '..liveID)
                 table.insert(field, {
                     ['name'] = 'LiveID',
-                    ['value'] = liveID
+                    ['value'] = liveID,
+                    ['inline'] = true
                 })
             end
         end
@@ -127,7 +130,8 @@ if Config.loggins then
                 print ('fivem: '..fivem)
                 table.insert(field, {
                     ['name'] = 'FiveM',
-                    ['value'] = fivem
+                    ['value'] = '```'..fivem..'```',
+                    ['inline'] = true
                 })
             end
         end
@@ -142,10 +146,10 @@ if Config.loggins then
                     ip = 'No activado'
                 end
             else
-                print ('ip: '..ip)
                 table.insert(field, {
                     ['name'] = 'IP',
-                    ['value'] = ip
+                    ['value'] = '```'..ip..'```',
+                    ['inline'] = true
                 })
             end
         end
@@ -182,7 +186,12 @@ if Config.loggins then
         local fivem = identifiers.fivem
         local ip = identifiers.playerip
         local name = identifiers.name
-        local field = {}
+        local field = {
+            {
+                ['name'] = 'Razon',
+                ['value'] = '```'..reason..'```',
+            },
+        }
         if Config.licenses.active.steam then 
             if steamID == nil then
                 steamID = 'No encontrado'
@@ -190,7 +199,7 @@ if Config.loggins then
             else
                 table.insert(field, {
                     ['name'] = 'SteamID',
-                    ['value'] = steamID,
+                    ['value'] = '```'..steamID..'```',
                     ['inline'] = true
                 })
             end
@@ -202,7 +211,7 @@ if Config.loggins then
             else
                 table.insert(field, {
                     ['name'] = 'License',
-                    ['value'] = license,
+                    ['value'] = '```'..license..'```',
                     ['inline'] = true
                 })
             end
@@ -214,7 +223,8 @@ if Config.loggins then
             else
                 table.insert(field, {
                     ['name'] = 'Discord',
-                    ['value'] = discord
+                    ['value'] = discord,
+                    ['inline'] = true
                 })
             end
         end
@@ -225,7 +235,8 @@ if Config.loggins then
             else
                 table.insert(field, {
                     ['name'] = 'Xbox',
-                    ['value'] = xbl
+                    ['value'] = '```'..xbl..'```',
+                    ['inline'] = true
                 })
             end
         end
@@ -236,7 +247,8 @@ if Config.loggins then
             else
                 table.insert(field, {
                     ['name'] = 'LiveID',
-                    ['value'] = liveID
+                    ['value'] = '```'..liveID..'```',
+                    ['inline'] = true
                 })
             end
         end
@@ -247,7 +259,8 @@ if Config.loggins then
             else
                 table.insert(field, {
                     ['name'] = 'FiveM',
-                    ['value'] = fivem
+                    ['value'] = '```'..fivem..'```',
+                    ['inline'] = true
                 })
             end
         end
@@ -257,7 +270,8 @@ if Config.loggins then
             else
                 table.insert(field, {
                     ['name'] = 'IP',
-                    ['value'] = ip
+                    ['value'] = '```'..ip..'```',
+                    ['inline'] = true
                 })
             end
         end
