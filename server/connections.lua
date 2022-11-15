@@ -176,6 +176,9 @@ if Config.loggins then
     AddEventHandler("playerConnecting", OnPlayerConnecting)
 
     AddEventHandler('playerDropped', function (reason)
+        if reason == 'Exiting' then
+            reason = 'Se desconecto /quit'
+        end
         local src = source
         local identifiers = GetIdenti(src)
         local steamID = identifiers.steam
