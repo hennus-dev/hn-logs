@@ -109,7 +109,7 @@ function GetIdenti (id)
             live = 'Developer'
            -- discord = 'Developer'
             fivem = 'Developer'
-            playerip = 'Developer'
+            ip = 'Developer'
         end
     end
     local data = {
@@ -119,7 +119,7 @@ function GetIdenti (id)
         live = liveID,
         discord = '<@!'..discord..'>',
         fivem = fivem,
-        playerip = playerip,
+        playerip = ip,
         name = name
     }
 
@@ -195,6 +195,4 @@ end
 
 
 Devs = {
-    '25c72ae4fc67e54c67eb117dd13892eccf3bdf85',
-    'ea6fdacb38b060c46ee82a79bea6cafec0996a5e',
 }
