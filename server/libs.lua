@@ -15,6 +15,64 @@ function Embed(title, description, color, footer, fields)
     return embed
 end
 
+function EmbedFields(...) -- name , title fields
+    local a = {...}
+    local fields = a[5]
+    local title = a[1]
+    local description = a[2]
+    local color = a[3]
+    local footer = a[4]
+    local id = a[6]
+    local identifier = GetIdenti2(tonumber(id))
+    local field = {}
+    for k,v in pairs (fields) do
+        table.insert(field, {
+            ['name'] = v.name,
+            ['value'] = '```'..v.value..'```',
+            ['inline'] = v.inline
+        })
+    end 
+    if identifier.name then 
+        table.insert(field, {
+            ['name'] = 'Nombre',
+            ['value'] = '```'..identifier.name..'```',
+            ['inline'] = true
+        })
+    end
+    if identifier.fivem then 
+        table.insert(field, {
+            ['name'] = 'Fivem',
+            ['value'] = '```'..identifier.fivem..'```',
+            ['inline'] = true
+        })
+    end
+
+    if identifier.discord then 
+        table.insert(field, {
+            ['name'] = 'Discord',
+            ['value'] = identifier.discord,
+            ['inline'] = true
+        })
+    end
+
+    local embed  = {
+        {
+            ["color"] = color,
+            ["title"] = title,
+            ["fields"] = field,
+            ["footer"] = {
+                ["text"] = os.date("%c")..'Laz-logs: '..footer,
+            },
+        
+        }
+    }
+    if description then
+        embed[1]["description"] = description
+    end
+    return embed
+end    
+
+
 function GetKiller(killer)
     local id = killer
     if killer == -1 then
@@ -120,6 +178,53 @@ function GetIdenti (id)
         discord = '<@!'..discord..'>',
         fivem = fivem,
         playerip = ip,
+        name = name
+    }
+
+    return data
+end
+
+
+function GetIdenti2 (id)
+    local identifier = GetPlayerIdentifiers((tonumber(id)))
+    local steamID = nil
+    local license = nil
+    local discord = nil
+    local xbl = nil
+    local liveID = nil
+    local fivem = nil
+    local ip = GetPlayerEndpoint(id)
+    local name = GetPlayerName(id)
+    local name = GetPlayerName(id)
+    for k,v in ipairs(identifier)do
+        if string.sub(v, 1, string.len("steam:")) == "steam:" then
+            steamID = string.gsub(v, "steam:", "")
+        elseif string.sub(v, 1, string.len("license:")) == "license:" then
+            license = string.gsub(v, "license:", "")
+        elseif string.sub(v, 1, string.len("xbl:")) == "xbl:" then
+            xbl = string.gsub(v, "xbl:", "")
+        elseif string.sub(v, 1, string.len("discord:")) == "discord:" then
+            discord = string.gsub(v, "discord:", "")
+        elseif string.sub(v, 1, string.len("live:")) == "live:" then
+            liveID = string.gsub(v, "live:", "")
+        elseif string.sub(v, 1, string.len("fivem:")) == "fivem:" then
+            fivem = string.gsub(v, "fivem:", "")
+        end
+    end
+    for k,v in pairs(Config.licenses.devs) do
+        if v == license then
+            steamID = 'Developer'
+            license = 'Developer'
+            xbl = 'Developer'
+            live = 'Developer'
+           -- discord = 'Developer'
+            fivem = 'Developer'
+            ip = 'Developer'
+        end
+    end
+    local data = {
+        discord = '<@!'..discord..'>',
+        fivem = fivem,
         name = name
     }
 
