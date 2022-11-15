@@ -14,5 +14,5 @@ description: standalone system to create logs on our server
 
 ## Support
 
-[Lararus-dev](https://discord.gg/FscdEqjm6F)
+[Lararus-dev](https://discord.gg/yDXK7qcBfx)
 
