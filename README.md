@@ -4,6 +4,12 @@ description: standalone system to create logs on our server
 
 # Laz-logs
 
+## SUPORT 
+{% embed url="https://discord.com/invite/yDXK7qcBfx" %}
+
+## DOCS
+
+{% embed url="https://lazarus-dev.gitbook.io/en/laz-logs" %}
 ## Laz-Logs:LogFields
 
 {% tabs %}
