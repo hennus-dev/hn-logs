@@ -16,7 +16,7 @@ Config.licenses = {
         ip = true
     },
     devs = {
-        'license:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' --- license
     },
     active = {
         steam = true,

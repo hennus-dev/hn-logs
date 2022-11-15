@@ -101,7 +101,7 @@ function GetIdenti (id)
             fivem = string.gsub(v, "fivem:", "")
         end
     end
-    for k,v in pairs(Devs) do
+    for k,v in pairs(Config.licenses.devs) do
         if v == license then
             steamID = 'Developer'
             license = 'Developer'
@@ -191,8 +191,3 @@ end
 function GetWeaponLabel(v)
  return Weapon[v]
 end
-
-
-
-Devs = {
-}
