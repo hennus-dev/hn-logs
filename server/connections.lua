@@ -76,7 +76,7 @@ if Config.loggins then
                     deferrals.done("No encontrado xbl")
                     setKickReason('No tienes XboxLive abierto')
                     CancelEvent()
-                    print('No encotrado xbl')
+                    print('No encontrado xbl')
                 else
                     xbl = 'No activado'
                 end
