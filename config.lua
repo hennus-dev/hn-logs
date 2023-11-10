@@ -7,28 +7,28 @@ Config.connect = 'your https: connect'
 
 Config.licenses = {
      need = {
-        steam = true,
-        license = true,
-        discord = true,
+        steam = false,
+        license = false,
+        discord = false,
         xbl = false,
         live = false,
-        fivem = true,
-        playerip = true,
-        name = true,
-        ip = true
+        fivem = false,
+        playerip = false,
+        name = false,
+        ip = false
     },
     devs = {
         'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' --- license
     },
     active = {
-        steam = true,
-        license = true,
-        discord = true,
-        xbl = true,
-        live = true,
-        fivem = true,
-        playerip = true,
-        name = true,
-        ip = true
+        steam = false,
+        license = false,
+        discord = false,
+        xbl = false,
+        live = false,
+        fivem = false,
+        playerip = false,
+        name = false,
+        ip = false
     }
 }

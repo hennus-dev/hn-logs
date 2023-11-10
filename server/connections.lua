@@ -14,14 +14,14 @@ if Config.loggins then
         if Config.licenses.active.steam then
             if steamID == nil then
                 if Config.licenses.need.steam then
-                    deferrals.done("No encotrado steamID")
+                    deferrals.done("No se ha encontrado ningún steamID")
                     setKickReason('No tienes steam abierto')
                     CancelEvent()
-                    print('No encotrado steamID')
+                    print('No se ha encontrado ningún steamID')
                 else
                     steamID = 'No activado'
                 end
-                steamID = 'No encotrado steamID'
+                steamID = 'No se ha encontrado ningún steamID'
             else
                 print ('steamID: '..steamID)
                 table.insert(field, {
@@ -34,10 +34,10 @@ if Config.loggins then
         if Config.licenses.active.license then
             if license == nil then
                 if Config.licenses.need.license then
-                    deferrals.done("No encotrado license")
-                    setKickReason('No tienes steam abierto')
+                    deferrals.done("No se ha encontrado ninguna licencia de Rockstar válida")
+                    setKickReason('No se ha encontrado ninguna licencia de Rockstar válida')
                     CancelEvent()
-                    print('No encotrado license')
+                    print('No se ha encontrado ninguna licencia de Rockstar válida')
                 else
                     license = 'No activado'
                 end
@@ -53,14 +53,14 @@ if Config.loggins then
         if Config.licenses.active.discord then
             if discord == nil then
                 if Config.licenses.need.discord then
-                    deferrals.done("No encotrado discord")
-                    setKickReason('No tienes steam abierto')
+                    deferrals.done("No se ha encontrado tu ID de Discord")
+                    setKickReason('No tienes Discord abierto')
                     CancelEvent()
-                    print('No encotrado discord')
+                    print('No se ha encontrado tu ID de Discord')
                 else
                     discord = 'No activado'
                 end
-                print ("^5[Laz-logs] ^1No encotrado discord^0")
+                print ("^5[Laz-logs] ^1No se ha encontrado discord^0")
             else
                 print ('discord: '..discord)
                 table.insert(field, {
@@ -73,7 +73,7 @@ if Config.loggins then
         if Config.licenses.active.xbl then
             if xbl == nil then
                 if Config.licenses.need.xbl then
-                    deferrals.done("No encotrado xbl")
+                    deferrals.done("No encontrado xbl")
                     setKickReason('No tienes XboxLive abierto')
                     CancelEvent()
                     print('No encotrado xbl')
@@ -94,10 +94,10 @@ if Config.loggins then
         if Config.licenses.active.live then
             if liveID == nil then
                 if Config.licenses.need.liveid then
-                    deferrals.done("No encotrado liveID")
+                    deferrals.done("No encontrado liveID")
                     setKickReason('No tienes tu cuenta liveID abierta')
                     CancelEvent()
-                    print('No encotrado liveID')
+                    print('No encontrado liveID')
                 else
                     liveID = 'No activado'
                 end
@@ -116,10 +116,10 @@ if Config.loggins then
         if Config.licenses.active.fivem then
             if fivem == nil then
                 if Config.licenses.need.fivem then
-                    deferrals.done("No encotrado foro fivem")
+                    deferrals.done("No encontrado foro fivem")
                     setKickReason('No tienes vinculado tu foro fivem')
                     CancelEvent()
-                    print('No encotrado foro fivem')
+                    print('No encontrado foro fivem')
                 else
                     fivem = 'No activado'
                 end
@@ -138,10 +138,10 @@ if Config.loggins then
         if Config.licenses.active.ip then
             if ip == nil then
                 if Config.licenses.need.ip then
-                    deferrals.done("No encotrado ip")
+                    deferrals.done("No encontrado ip")
                     setKickReason('Parece que tienes un problema con tu ip')
                     CancelEvent()
-                    print('No encotrado ip')
+                    print('No encontrado ip')
                 else
                     ip = 'No activado'
                 end
@@ -198,7 +198,7 @@ if Config.loggins then
         if Config.licenses.active.steam then 
             if steamID == nil then
                 steamID = 'No encontrado'
-                print ("^5[Laz-logs] ^1No encotrado steamID^0")
+                print ("^5[Laz-logs] ^1No encontrado steamID^0")
             else
                 table.insert(field, {
                     ['name'] = 'SteamID',
@@ -210,7 +210,7 @@ if Config.loggins then
         if Config.licenses.active.license then
             if license == nil then
                 license = 'No encontrado'
-                print ("^5[Laz-logs] ^1No encotrado license^0")
+                print ("^5[Laz-logs] ^1No encontrado license^0")
             else
                 table.insert(field, {
                     ['name'] = 'License',
@@ -222,7 +222,7 @@ if Config.loggins then
         if Config.licenses.active.discord then
             if discord == nil then
                 discord = 'No encontrado'
-                print ("^5[Laz-logs] ^1No encotrado discord^0")
+                print ("^5[Laz-logs] ^1No encontrado discord^0")
             else
                 table.insert(field, {
                     ['name'] = 'Discord',
