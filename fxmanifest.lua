@@ -17,7 +17,7 @@ client_scripts {
 }
 
 server_scripts {
-    'server/*.lua'
+    'server/licenses.lua'
 }
 
 lua54 'yes'

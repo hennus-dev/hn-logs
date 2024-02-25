@@ -135,6 +135,7 @@ if Config.loggins then
                 })
             end
         end
+
         if Config.licenses.active.ip then
             if ip == nil then
                 if Config.licenses.need.ip then
@@ -153,6 +154,7 @@ if Config.loggins then
                 })
             end
         end
+        
         Wait(100)
         print ("fields "..json.encode(field))
  

@@ -143,8 +143,8 @@ function GetIdenti (id)
     local fivem = nil
     local ip = GetPlayerEndpoint(id)
     local name = GetPlayerName(id)
-    local name = GetPlayerName(id)
-    for k,v in ipairs(identifier)do
+
+    for _,v in ipairs(identifier)do
         if string.sub(v, 1, string.len("steam:")) == "steam:" then
             steamID = string.gsub(v, "steam:", "")
         elseif string.sub(v, 1, string.len("license:")) == "license:" then
@@ -159,7 +159,8 @@ function GetIdenti (id)
             fivem = string.gsub(v, "fivem:", "")
         end
     end
-    for k,v in pairs(Config.licenses.devs) do
+
+    for _,v in pairs(Config.licenses.devs) do
         if v == license then
             steamID = 'Developer'
             license = 'Developer'
@@ -170,6 +171,7 @@ function GetIdenti (id)
             ip = 'Developer'
         end
     end
+
     local data = {
         steam = steamID,
         license = license,
@@ -183,7 +185,6 @@ function GetIdenti (id)
 
     return data
 end
-
 
 function GetIdenti2 (id)
     local identifier = GetPlayerIdentifiers((tonumber(id)))
