@@ -1,7 +1,5 @@
 if Config.kills then
     AddEventHandler('gameEventTriggered', function(event, data)
-		print('^4gameEventTriggered '..event)
-		print ('data '..json.encode(data))
 		if event == 'CEventNetworkEntityDamage' then
 			--local victim, attacker, victimDied, weapon = data[1], data[2], data[4], data[7]
             local victim, attacker, victimDied, weapon = GetDataDamage(data)
@@ -14,8 +12,6 @@ if Config.kills then
                 local weaponName = Weapon[weapon] or weapon
                 local pos = GetEntityCoords(PlayerPedId())
                 local killerpos = GetEntityCoords(GetPlayerPed(killerid))
-                print ("diead "..playerName.." "..killerName.." "..weaponName.." vector3("..pos[1]..", "..pos[2]..", "..pos[3]..")")
-                print ('playerid '..playerid..' killerid '..killerid)
                 local data = {
                     victim = GetPlayerServerId(playerid),
                     killerid = GetPlayerServerId(killerid),
