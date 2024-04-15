@@ -11,9 +11,9 @@ if Config.loggins then
         local ip = identifiers.playerip
         local name = identifiers.name
         local field = {}
-        if Config.licenses.active.steam then
+        if Config.licenses.SteamID.active then
             if steamID == nil then
-                if Config.licenses.need.steam then
+                if Config.licenses.SteamID.need then
                     deferrals.done("No se ha encontrado ningún steamID")
                     setKickReason('No tienes steam abierto')
                     CancelEvent()
@@ -31,9 +31,9 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.license then
+        if Config.licenses.License.active then
             if license == nil then
-                if Config.licenses.need.license then
+                if Config.licenses.License.need then
                     deferrals.done("No se ha encontrado ninguna licencia de Rockstar válida")
                     setKickReason('No se ha encontrado ninguna licencia de Rockstar válida')
                     CancelEvent()
@@ -50,9 +50,9 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.discord then
+        if Config.licenses.Discord.active then
             if discord == nil then
-                if Config.licenses.need.discord then
+                if Config.licenses.Discord.need then
                     deferrals.done("No se ha encontrado tu ID de Discord")
                     setKickReason('No tienes Discord abierto')
                     CancelEvent()
@@ -70,9 +70,9 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.xbl then
+        if Config.licenses.Xbl.active then
             if xbl == nil then
-                if Config.licenses.need.xbl then
+                if Config.licenses.Xbl.need then
                     deferrals.done("No encontrado xbl")
                     setKickReason('No tienes XboxLive abierto')
                     CancelEvent()
@@ -91,9 +91,9 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.live then
+        if Config.licenses.LiveID.active then
             if liveID == nil then
-                if Config.licenses.need.liveid then
+                if Config.licenses.LiveID.need then
                     deferrals.done("No encontrado liveID")
                     setKickReason('No tienes tu cuenta liveID abierta')
                     CancelEvent()
@@ -113,9 +113,9 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.fivem then
+        if Config.licenses.Fivem.active then
             if fivem == nil then
-                if Config.licenses.need.fivem then
+                if Config.licenses.Fivem.need then
                     deferrals.done("No encontrado foro fivem")
                     setKickReason('No tienes vinculado tu foro fivem')
                     CancelEvent()
@@ -136,9 +136,9 @@ if Config.loggins then
             end
         end
 
-        if Config.licenses.active.ip then
+        if Config.licenses.Ip.active then
             if ip == nil then
-                if Config.licenses.need.ip then
+                if Config.licenses.Ip.need then
                     deferrals.done("No encontrado ip")
                     setKickReason('Parece que tienes un problema con tu ip')
                     CancelEvent()
@@ -169,8 +169,8 @@ if Config.loggins then
                 },
             }
         }
-        if Config.WeebHook['loggin'].url ~= '' then
-            PerformHttpRequest(Config.WeebHook['loggin'].url, function(err, text, headers) end, 'POST', json.encode({username = GetCurrentResourceName().."-Logs- Entradas", embeds = embed}), { ['Content-Type'] = 'application/json' })
+        if Config.WebHook['loggin'].url ~= '' then
+            PerformHttpRequest(Config.WebHook['loggin'].url, function(err, text, headers) end, 'POST', json.encode({username = GetCurrentResourceName().."-Logs- Entradas", embeds = embed}), { ['Content-Type'] = 'application/json' })
         else
             print ("^5[Laz-logs] ^1No tienes configurado el webhook de loggin^0")
         end
@@ -197,7 +197,7 @@ if Config.loggins then
                 ['value'] = '```'..reason..'```',
             },
         }
-        if Config.licenses.active.steam then 
+        if Config.licenses.SteamID.active then 
             if steamID == nil then
                 steamID = 'No encontrado'
                 print ("^5[Laz-logs] ^1No encontrado steamID^0")
@@ -209,7 +209,7 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.license then
+        if Config.licenses.License.active then
             if license == nil then
                 license = 'No encontrado'
                 print ("^5[Laz-logs] ^1No encontrado license^0")
@@ -221,7 +221,7 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.discord then
+        if Config.licenses.Discord.active then
             if discord == nil then
                 discord = 'No encontrado'
                 print ("^5[Laz-logs] ^1No encontrado discord^0")
@@ -233,7 +233,7 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.xbl then
+        if Config.licenses.Xbl.active then
             if xbl == nil then
                 xbl = 'No encontrado'
                 print ("^5[Laz-logs] ^1Xbox no encontrado^0")
@@ -245,7 +245,7 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.live then
+        if Config.licenses.LiveID.active then
             if liveID == nil then
                 liveID = 'No encontrado'
                 print ("^5[Laz-logs] ^1LiveID no encontrado^0")
@@ -257,7 +257,7 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.fivem then
+        if Config.licenses.Fivem.active then
             if fivem == nil then
                 fivem = 'No encontrado'
                 print ("^5[Laz-logs] ^1FiveM no encontrado^0")
@@ -269,7 +269,7 @@ if Config.loggins then
                 })
             end
         end
-        if Config.licenses.active.ip then
+        if Config.licenses.Ip.active then
             if ip == nil then
                 ip = 'No encontrado'
             else
@@ -282,7 +282,6 @@ if Config.loggins then
         end
 
         Wait(100)
-        print ("fields "..json.encode(field))
         local embed = {
             {
                 ["color"] = Colours["red"],
@@ -293,8 +292,8 @@ if Config.loggins then
                 },
             }
         }
-        if Config.WeebHook['logout'].url ~= '' then
-            PerformHttpRequest(Config.WeebHook['logout'].url, function(err, text, headers) end, 'POST', json.encode({username = GetCurrentResourceName().."-Logs- Salidas", embeds = embed}), { ['Content-Type'] = 'application/json' })
+        if Config.WebHook['logout'].url ~= '' then
+            PerformHttpRequest(Config.WebHook['logout'].url, function(err, text, headers) end, 'POST', json.encode({username = GetCurrentResourceName().."-Logs- Salidas", embeds = embed}), { ['Content-Type'] = 'application/json' })
         end
 
     end)

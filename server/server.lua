@@ -3,7 +3,7 @@ colldownlogs = 0
 
 RegisterNetEvent('laz:logs:server:log', function(webhooks,name, message,tags,color,id, otherid )
     local name = name
-    local WeebHook = Config.WeebHook[webhooks] or Config.WeebHook['default']
+    local WeebHook = Config.WebHook[webhooks] or Config.WebHook['default']
     local embed = Embed(name, message, Colours[color] or Colours["purple"], name)
     while colldownlogs > 0 do
         Wait(100)
@@ -28,7 +28,7 @@ end)
 -- register send Embed to discord
 
 RegisterNetEvent('Laze:logs:server:sendEmbed', function(webhooks, embed, tag)
-    local WeebHook = Config.WeebHook[webhooks] or Config.WeebHook['default']
+    local WeebHook = Config.WebHook[webhooks] or Config.WebHook['default']
     print (json.encode(embed))
     while colldownlogs > 0 do
         Wait(50)

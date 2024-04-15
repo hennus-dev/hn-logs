@@ -154,7 +154,7 @@ if Config.ValidateLicense then
     --             ['value'] = '```'..reason..'```',
     --         },
     --     }
-    --     if Config.licenses.active.steam then 
+    --     if Config.licenses.SteamID.active then 
     --         if steamID == nil then
     --             steamID = 'No encontrado'
     --             print ("^5[Laz-logs] ^1No encontrado steamID^0")
@@ -250,8 +250,8 @@ if Config.ValidateLicense then
     --             },
     --         }
     --     }
-    --     if Config.WeebHook['logout'].url ~= '' then
-    --         PerformHttpRequest(Config.WeebHook['logout'].url, function(err, text, headers) end, 'POST', json.encode({username = GetCurrentResourceName().."-Logs- Salidas", embeds = embed}), { ['Content-Type'] = 'application/json' })
+    --     if Config.WebHook['logout'].url ~= '' then
+    --         PerformHttpRequest(Config.WebHook['logout'].url, function(err, text, headers) end, 'POST', json.encode({username = GetCurrentResourceName().."-Logs- Salidas", embeds = embed}), { ['Content-Type'] = 'application/json' })
     --     end
 
     -- end)

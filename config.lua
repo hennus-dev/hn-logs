@@ -1,7 +1,7 @@
 Config = {}
 Config.ValidateLicense = true -- Activar o desactivar el loggin de los jugadores
 
-Config.loggins = false -- Activar o desactivar el loggin de los jugadores
+Config.loggins = true -- Activar o desactivar el loggin de los jugadores
 Config.resources = true -- Activar o desactivar para ver si se reinicia algun recursos
 Config.kills = true -- Activar o desactivar para ver las meurtes de los jugadores
 Config.startServer = false -- Activar o desactivar para ver cuando se inicia el servidor
@@ -14,32 +14,44 @@ Config.devLicenses = {
 Config.licenses = {
     License = {
         prefix = "license",
-        active = true,
+        active = false,
         mandatory = false,
+        need = false
     },
     Discord = {
         prefix = "discord",
-        active = true,
+        active = false,
         mandatory = false,
+        need = false
     },
     Xbl = {
         prefix = "xbl",
-        active = true,
+        active = false,
         mandatory = false,
+        need = false
     },
     LiveID = {
         prefix = "live",
-        active = true,
+        active = false,
         mandatory = false,
+        need = false
     },
     Fivem = {
         prefix = "fivem",
-        active = true,
-        mandatory = true,
+        active = false,
+        mandatory = false,
+        need = false
     },
     SteamID = {
         prefix = "steam",
-        active = true,
+        active = false,
         mandatory = false,
+        need = false,
     },
+    Ip = {
+        prefix = "ip",
+        active = false,
+        mandatory = false,
+        need = false
+    }
 }
